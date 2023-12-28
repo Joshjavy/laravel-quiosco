@@ -3,7 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Password as PasswordRules;
+use Illuminate\Validation\Rules\Password as PasswordRules;
+
 class RegistroRequest extends FormRequest
 {
     /**
@@ -23,6 +24,7 @@ class RegistroRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
             'name'=>['required','string'],
             'email'=>['required','email','unique:users,email'],
@@ -33,5 +35,16 @@ class RegistroRequest extends FormRequest
                 
             ],
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required'=>'El nombre el obligatorio',
+            'email.required'=>'El email es obligatorio',
+            'email.email'=>'El mail ingresado no es valido',
+            'email.unique'=>'El usuario ya esta registrado',
+            'password'=>'password minimo de 8 carateres, simbolos y numeros'
+        ]; 
     }
 }
