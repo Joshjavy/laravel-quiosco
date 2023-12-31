@@ -39,10 +39,21 @@ class AuthController extends Controller
             ],422);
         }
 
+        // Autenticar al usuario
+        $user = Auth::user();
+        return [
+            'token' => $user->createToken('token')->plainTextToken,
+            'user'=> $user,
+        ];
+
     }
 
-    public function logout (RegistroRequest $request){
-        
+    public function logout (Request $request){
+        $user=$request->user();
+        $user->currentAccessToken()->delete();
+        return [
+            'user'=>null,
+        ];
     }
 
 }
