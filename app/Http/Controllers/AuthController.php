@@ -27,8 +27,8 @@ class AuthController extends Controller
         ];
     }
 
-    public function login(RegistroRequest $request){
-
+    public function login( Request $request){
+        return ('desde login');
     }
 
     public function logout (RegistroRequest $request){
