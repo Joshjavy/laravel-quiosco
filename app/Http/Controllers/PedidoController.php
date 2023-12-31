@@ -55,7 +55,7 @@ class PedidoController extends Controller
 
 
         return [
-            'message'=>'Realizando pedido '.$pedido->id,
+            'message'=>'Pedido realizado correctamente, estara listo en unos momentos. ',
         ];
     }
 
