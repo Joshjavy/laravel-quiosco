@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->group(function (){
     });
     Route::post('/logout',[AuthController::class, 'logout']);
     //alamcenar ordenes
-    Route::apiResource('/pedido',PedidoController::class);
+    Route::apiResource('/pedidos',PedidoController::class);
 });
 
 Route:: apiResource('/categorias', CategoriaController::class);
