@@ -68,9 +68,7 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        return [
-            'message'=>'realizando pedido'
-        ];
+        
     }
 
     /**
@@ -82,7 +80,11 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
-        //
+        $pedido->estado =1;
+        $pedido->save();
+        return [
+            'pedido' => $pedidos
+        ];
     }
 
     /**
