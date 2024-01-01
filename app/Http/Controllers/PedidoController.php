@@ -83,7 +83,7 @@ class PedidoController extends Controller
         $pedido->estado =1;
         $pedido->save();
         return [
-            'pedido' => $pedidos
+            'pedido' => $pedido
         ];
     }
 
